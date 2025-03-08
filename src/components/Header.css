@@ -1,0 +1,71 @@
+header {
+    width: 800px;
+    height: 480px;
+    border: 2px solid white;
+    margin: 130px auto;
+    border-radius: 15px;
+    background-color: white;
+}
+body {
+    background-color: blue;
+}
+.globalDivContayner-1 {
+    padding: 0px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.globalDivContayner-2 {
+    border: 2px solid rgb(194, 189, 189);
+    width: 770px;
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+    margin: 5px 4px;
+    border-radius: 10px;
+
+}
+.divContayner-1 {
+    width: 100px;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.divContayner-1 > button {
+    padding: 0px 5px;
+    border-radius: 5px ;
+    border: none;
+    font-size: 25px;
+}
+.divContayner-2 > img {
+    width: 130px;
+    height: 90px;
+}
+.divContayner-3 {
+    width: 130px;
+    height: 90px;
+}
+.divContayner-4 {
+    width: 120px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.divContayner-4 > button {
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(228, 224, 224);
+    color: black;
+    font-size: 20px;
+}
+.Cet-app-color {
+    color: red;
+}
+.divContayner-5 {
+    width: 90px;
+    height: 70px;
+}
