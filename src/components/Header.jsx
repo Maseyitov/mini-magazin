@@ -1,136 +1,71 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { CartContext } from "./CartContext"
+import Modal from "./Modal"
 import "./Header.css"
 
 let Header = () => {
+    const { cartItems, addToCart, toggleModal, isModalOpen } = useContext(CartContext)
 
-    let [pushsenaNike , setPushsenaNike] = useState(1)
-    let [pushsenaJordon , setPushsenaJordon] = useState(1)
-    let [pushsenaLacosste , setPushsenaLacosste] = useState(1)
+    const [favorites, setFavorites] = useState([])
 
-    let [nikeloveyearHendler , setNikeLoveyearHendler] = useState(false)
-    let [jordanloveyearHendler , setJordonLoveyearHendler] = useState(false)
-    let [lacossteloveyearHendler , setLacossteLoveyearHendler] = useState(false)
-
-    let nikeSenaHendler = 1200
-    let jordonSenaHendler = 2000
-    let lacossteSenaHendler = 1500
-
-    let [proverkaTovar , setProverkaTovar] = useState(nikeSenaHendler)
-    let [proverkaTovar2 , setProverkaTovar2] = useState(jordonSenaHendler)
-    let [proverkaTovar3 , setProverkaTovar3] = useState(lacossteSenaHendler)
-
-    let PlusyearHendlerNike = () => {
-        setPushsenaNike(pushsenaNike + 1)
-        setProverkaTovar(proverkaTovar + nikeSenaHendler)
-    }
-    let PlusyearHendlerJordon = () => {
-        setPushsenaJordon(pushsenaJordon + 1)
-        setProverkaTovar2(proverkaTovar2 + jordonSenaHendler)
-    }
-    let PlusyearHendlerLacosste = () => {
-        setPushsenaLacosste(pushsenaLacosste + 1)
-        setProverkaTovar3(proverkaTovar3 + lacossteSenaHendler)
+    const toggleFavorite = (id) => {
+        setFavorites(prev =>
+            prev.includes(id) ? prev.filter(favId => favId !== id) : [...prev, id]
+        )
     }
 
-    let MinusyearHendlerNike = () => {
-        if (pushsenaNike > 1 ) {
-            setPushsenaNike(pushsenaNike - 1)
-            setProverkaTovar(proverkaTovar - nikeSenaHendler)
-        }
-    }
-    let MinusyearHendlerJordon = () => {
-        if (pushsenaJordon > 1 ) {
-            setPushsenaJordon(pushsenaJordon - 1)
-            setProverkaTovar2(proverkaTovar2 - jordonSenaHendler)
-        }
-    }
-    let MinusyearHendlerLacosste = () => {
-        if (pushsenaLacosste > 1 ) {
-            setPushsenaLacosste(pushsenaLacosste - 1)
-            setProverkaTovar3(proverkaTovar3 - lacossteSenaHendler)
-        }
-    }
-
-    let nikeLoveHendler = () => {
-        setNikeLoveyearHendler(!nikeloveyearHendler)
-    }
-    let jordanLoveHendler = () => {
-        setJordonLoveyearHendler(!jordanloveyearHendler)
-    }
-    let lacssteLoveHendler = () => {
-        setLacossteLoveyearHendler(!lacossteloveyearHendler)
-    }
-    
-
-
+    const items = [
+        {
+            id: 1,
+            name: "Nike",
+            price: 1200,
+            img: "https://akn-barcin.a-cdn.akinoncloud.com/products/2023/02/24/1096626/02b54378-ff9d-4ce9-ac35-f523ea706722_size1800x1800_cropCenter.jpg",
+        },
+        {
+            id: 2,
+            name: "Jordan",
+            price: 2000,
+            img: "https://www.asphaltgold.com/cdn/shop/files/uNHxvmawZkM7aUGm1vQB_FQ7818-101-Nike-Wmns-Air-Jordan-1-Mid-SE-Sail-Black-Actice-Pink-Bordeaux-os-2_1511910b-3dbd-4b88-ae5e-bcfbaa2a5922_1200x1200.jpg?v=1726153961",
+        },
+        {
+            id: 3,
+            name: "Lacoste",
+            price: 1500,
+            img: "https://sportbrend.com/image/cache/webp/catalog/products/392/392f80e8041d08931c366b5ffd7db62d-500x500.webp",
+        },
+    ]
 
     return (
         <header>
             <div className="globalDivContayner-1">
-            <h1>Shopping Beg</h1>
-            </div>
-            <div className="globalDivContayner-2">
-            <div className="divContayner-1">
-                <button>✕</button>
-                <button onClick={nikeLoveHendler} className={nikeloveyearHendler ?" Cet-app-color" : "" }>❤</button>
-            </div>
-            <div className="divContayner-2">
-                <img src="https://media.wired.com/photos/63728604691ed08cc4b98976/4:3/w_1880,h_1410,c_limit/Nike-Swoosh-News-Gear.jpg" alt="" />
-            </div>
-            <div className="divContayner-3">
-                <h3> Nike</h3>
-            </div>
-            <div className="divContayner-4"> 
-                <button onClick={PlusyearHendlerNike}>+</button>
-                <h1>{pushsenaNike}</h1>
-                <button onClick={MinusyearHendlerNike}>-</button>
-            </div>
-            <div className="divContayner-5">
-            <h2 >${proverkaTovar}</h2>
-            </div>
+                <h1>Shopping Bag</h1>
+                <button onClick={toggleModal}> 🛒 {cartItems.reduce((total, item) => total + item.quantity, 0)}</button>
             </div>
 
-            <div className="globalDivContayner-2">
-            <div className="divContayner-1">
-                <button>✕</button>
-                <button onClick={jordanLoveHendler} className={jordanloveyearHendler ?" Cet-app-color" : "" }>❤</button>
-            </div>
-            <div className="divContayner-2">
-                <img src="https://assets.gq.ru/photos/5d9f476010e0190008fb08b6/16:9/w_2560%2Cc_limit/air-jordan-1.jpg" alt="" />
-            </div>
-            <div className="divContayner-3">
-                <h3> Jordan </h3>
-            </div>
-            <div className="divContayner-4"> 
-                <button onClick={PlusyearHendlerJordon}>+</button>
-                <h1>{pushsenaJordon}</h1>
-                <button onClick={MinusyearHendlerJordon}>-</button>
-            </div>
-            <div className="divContayner-5">
-            <h2 >${proverkaTovar2}</h2>
-            </div>
-            </div>
+            {items.map(item => (
+                <div key={item.id} className="globalDivContayner-2">
+                    <div className="divContayner-1">
+                        <button>✕</button>
+                    <button
+                        className={favorites.includes(item.id) ? "heart-btn red" : "heart-btn"}
+                        onClick={() => toggleFavorite(item.id)}>❤</button>
+                    </div>
+                    <div className="divContayner-2">
+                        <img src={item.img} alt={item.name} />
+                    </div>
+                    <div className="divContayner-3">
+                        <h3>{item.name}</h3>
+                    </div>
+                    <div className="divContayner-4">
+                        <button onClick={() => addToCart(item)}>Add</button>
+                    </div>
+                    <div className="divContayner-5">
+                        <h2>${item.price}</h2>
+                    </div>
+                </div>
+            ))}
 
-            <div className="globalDivContayner-2">
-            <div className="divContayner-1">
-                <button>✕</button>
-                <button onClick={lacssteLoveHendler} className={lacossteloveyearHendler ?" Cet-app-color" : "" }>❤</button>
-            </div>
-            <div className="divContayner-2">
-                <img src="https://sportbrend.com/image/cache/webp/catalog/products/392/392f80e8041d08931c366b5ffd7db62d-500x500.webp" alt="" />
-            </div>
-            <div className="divContayner-3">
-                <h3>Lacosste </h3>
-            </div>
-            <div className="divContayner-4"> 
-                <button onClick={PlusyearHendlerLacosste}>+</button>
-                <h1>{pushsenaLacosste}</h1>
-                <button onClick={MinusyearHendlerLacosste}>-</button>
-            </div>
-            <div className="divContayner-5">
-            <h2 >${proverkaTovar3}</h2>
-            </div>
-            </div>
+            {isModalOpen && <Modal />}
         </header>
     )
 }

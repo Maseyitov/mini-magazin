@@ -1,12 +1,15 @@
-import './App.css';
+import React from "react"
 import Header from "./components/Header"
+import { CartProvider } from "./components/CartContext"
+import CartSummary from "./components/CartSummary"
 
 function App() {
-  return (
-    <div className="App">
-      <Header/>
-    </div>
-  );
+    return (
+        <CartProvider>
+            <Header />
+            <CartSummary />
+        </CartProvider>
+    )
 }
 
-export default App;
+export default App

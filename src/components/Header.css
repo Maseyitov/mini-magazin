@@ -1,71 +1,193 @@
+body {
+    background-color: #043cf5;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
 header {
     width: 800px;
-    height: 480px;
-    border: 2px solid white;
-    margin: 130px auto;
+    margin: 100px auto;
     border-radius: 15px;
-    background-color: white;
+    background-color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
-body {
-    background-color: blue;
-}
+
 .globalDivContayner-1 {
-    padding: 0px 20px;
-    display: flex;
-    justify-content: space-between;
-}
-.globalDivContayner-2 {
-    border: 2px solid rgb(194, 189, 189);
-    width: 770px;
-    height: 120px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 10px;
-    margin: 5px 4px;
-    border-radius: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.globalDivContayner-1 h1 {
+    font-size: 28px;
+    color: #111827;
+}
+
+.globalDivContayner-1 button {
+    width: 100px;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #1d06f0;
 
 }
-.divContayner-1 {
-    width: 100px;
-    height: 30px;
+
+.globalDivContayner-2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+    color: white;
 }
+
+.globalDivContayner-2:nth-child(2) {
+    background-color: #000000; 
+}
+
+.globalDivContayner-2:nth-child(3) {
+    background-color: #000000; 
+}
+
+.globalDivContayner-2:nth-child(4) {
+    background-color: #000000; 
+}
+
+.divContayner-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
 .divContayner-1 > button {
-    padding: 0px 5px;
-    border-radius: 5px ;
+    background: none;
     border: none;
-    font-size: 25px;
+    font-size: 22px;
+    cursor: pointer;
+    color: white;
 }
-.divContayner-2 > img {
-    width: 130px;
-    height: 90px;
+
+.divContayner-2 img {
+    width: 100px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.divContayner-3 h3 {
+    font-size: 20px;
+    margin: 0;
+    color: white;
 }
 .divContayner-3 {
-    width: 130px;
-    height: 90px;
+    width: 100px;
 }
-.divContayner-4 {
-    width: 120px;
-    height: 40px;
+
+.divContayner-4 button {
+    padding: 8px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #0037ff;
+    color: white;
+    border-radius: 8px;
+}
+
+.divContayner-4 button:hover {
+    background-color: #005eff;
+}
+
+.divContayner-5 h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    width: 420px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #111827;
+    padding-bottom: 10px;
+}
+
+.modal-content ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+.heart-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #555;
+    transition: color 0.2s ease;
+}
+
+.heart-btn.red {
+    color: red;
+}
+
+
+.modal-content li {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 10px;
+    background-color: rgb(0, 0, 0);
+    color: wheat;
+    border-radius: 10px;
+    margin: 10px 0px;
 }
-.divContayner-4 > button {
-    padding: 5px 15px;
-    border-radius: 5px;
+
+.modal-content img {
+    width: 60px;
+    height: 45px;
+    border-radius: 8px;
+    background-color: gray;
+}
+
+.close-btn {
+    float: right;
+    background: none;
     border: none;
-    background-color: rgb(228, 224, 224);
-    color: black;
     font-size: 20px;
+    cursor: pointer;
+    color: #6b7280;
 }
+
+.close-btn:hover {
+    color: #111827;
+}
+
 .Cet-app-color {
-    color: red;
-}
-.divContayner-5 {
-    width: 90px;
-    height: 70px;
+    color: #f87171;
 }
